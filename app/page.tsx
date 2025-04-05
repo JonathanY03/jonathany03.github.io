@@ -1,10 +1,11 @@
-export default function Home() {
-  return (
-    <div>
-      <main>
-        <h1>Jonathan Yu</h1>
-        <p>This is my personal website!</p>
-      </main>
-    </div>
-  );
+import "./globals.css";
+
+const Page = () => {
+    return (
+        <div className="flex flex-col items-center justify-center min-h-screen">
+            This is my personal website! (Work in Progress)
+        </div>
+    );
 }
+
+export default Page;
