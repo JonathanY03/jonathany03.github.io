@@ -15,24 +15,24 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row md:space-x-4 xl:col-span-1 mb-2">
                     <ul>
                         <li className="text-2xl mb-2">Links</li>
-                        <li><Link href="/">Home</Link></li>
-                        <li><Link href="/about">About</Link></li>
-                        <li><Link href="/projects">Projects</Link></li>
-                        <li><Link href="/resume">Resume</Link></li>
-                        <li><Link href="/blog">Blog</Link></li>
+                        <li><Link href="/" className="hover:underline">Home</Link></li>
+                        <li><Link href="/about" className="hover:underline">About</Link></li>
+                        <li><Link href="/projects" className="hover:underline">Projects</Link></li>
+                        <li><Link href="/resume" className="hover:underline">Resume</Link></li>
+                        <li><Link href="/blog" className="hover:underline">Blog</Link></li>
                     </ul>
                 </div>
                 <div className="flex flex-col md:flex-row md:space-x-4 xl:col-span-1 mb-2">
                     <ul>
                         <li className="text-2xl mb-2">Social</li>
-                        <li><Link href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</Link></li>
-                        <li><Link href={github} target="_blank" rel="noopener noreferrer">GitHub</Link></li>
+                        <li><Link href={linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</Link></li>
+                        <li><Link href={github} target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</Link></li>
                     </ul>
                 </div>
                 <div className="flex flex-col md:flex-row md:space-x-4 xl:col-span-1 mb-2">
                     <ul>
                         <li className="text-2xl mb-2">Contact</li>
-                        <li>Jonathan Yu</li>
+                        <li>Whitby, Ontario</li>
                         <li>+1 (249) 357-8182</li>
                         <li>jonathan.yu.03@gmail.com</li>
                     </ul>

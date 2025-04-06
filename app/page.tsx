@@ -1,4 +1,5 @@
-import "./globals.css";
+"use client";
+import "@/app/globals.css";
 
 const Page = () => {
     return (
