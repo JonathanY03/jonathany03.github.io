@@ -9,7 +9,9 @@ const Page = () => {
                 <p className="text-gray-700 mb-2 text-center">Whitby, Ontario &#9474; (249) 357-8182 &#9474; jonathan.yu.03@gmail.com</p>
                 
                 <h2 className="text-xl font-semibold mb-2">Education</h2>
-                <p className="text-gray-700 mb-2 font-bold">University of Toronto, Mississauga</p>
+                <p className="text-gray-700 mb-2 font-bold">University of Guelph</p>
+                <span className="text-gray-700 mb-2 flex justify-between"><p>Master of Cybersecurity and Threat Intelligence</p><p className="text-gray-400">September 2026</p></span>
+                <p className="text-gray-700 mb-2 font-bold">University of Toronto</p>
                 <span className="text-gray-700 mb-2 flex justify-between"><p>Honours Bachelor of Science (HBSc), Information Security Specialist, Mathematical Sciences Minor</p><p className="text-gray-400">June 2025</p></span>
                 
                 {/* <h2 className="text-lg font-semibold mb-1">Awards & Acheivements</h2> */}

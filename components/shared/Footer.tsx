@@ -33,13 +33,12 @@ const Footer = () => {
                     <ul>
                         <li className="text-2xl mb-2">Contact</li>
                         <li>Whitby, Ontario</li>
-                        <li>+1 (249) 357-8182</li>
-                        <li>jonathan.yu.03@gmail.com</li>
+                        <li>jonathan.yu.03@icloud.com</li>
                     </ul>
                 </div>
             </div>
             <p className="text-center text-sm mt-2 text-gray-400">
-                &copy; 2025 Jonathan Yu. All rights reserved.
+                By Jonathan Yu 2025
             </p>
         </footer>
     );
