@@ -32,7 +32,6 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row md:space-x-4 xl:col-span-1 mb-2">
                     <ul>
                         <li className="text-2xl mb-2">Contact</li>
-                        <li>Whitby, Ontario</li>
                         <li>jonathan.yu.03@icloud.com</li>
                     </ul>
                 </div>

@@ -6,7 +6,6 @@ const Page = () => {
         <div className="flex flex-col items-center justify-center min-h-screen">
             <div className="shadow-md rounded-lg bg-white w-[80%] p-8">
                 <h1 className="text-2xl font-bold mb-4 text-center">Jonathan Yu</h1>
-                <p className="text-gray-700 mb-2 text-center">Whitby, Ontario &#9474; (249) 357-8182 &#9474; jonathan.yu.03@gmail.com</p>
                 
                 <h2 className="text-xl font-semibold mb-2">Education</h2>
                 <p className="text-gray-700 mb-2 font-bold">University of Guelph</p>
