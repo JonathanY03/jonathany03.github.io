@@ -1,7 +1,7 @@
 "use client";
 import "@/app/globals.css";
 import React, { useEffect, useMemo, useState } from "react";
-import Link from 'next/link'
+import Link from 'next/link';
 
 const PAGE_SIZE = 5;
 
