@@ -1,6 +1,8 @@
 "use client";
 import "@/app/globals.css";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useState} from "react";
+
+const DEBUG = true;
 
 const ROWS: number = 6;
 const COLS: number = 7;
@@ -55,13 +57,7 @@ function countDir(
     let c = col + dc;
     let count = 0;
 
-    while (
-        r >= 0 &&
-        r < ROWS &&
-        c >= 0 &&
-        c < COLS &&
-        board[r][c] === player
-    ) {
+    while (r >= 0 && r < ROWS && c >= 0 && c < COLS && board[r][c] === player) {
         count++;
         r += dr;
         c += dc;
@@ -85,6 +81,7 @@ function getBestMove(board: Player[][], player: Player): number {
         tempBoard[row][col] = player;
 
         if (checkWin(tempBoard, row, col, player)) {
+            if (DEBUG) console.log("Winning at column:", col);
             return col;
         }
     }
@@ -98,6 +95,7 @@ function getBestMove(board: Player[][], player: Player): number {
         tempBoard[row][col] = opponent;
 
         if (checkWin(tempBoard, row, col, opponent)) {
+            if (DEBUG) console.log("Blocking at column:", col);
             return col;
         }
     }
@@ -116,7 +114,7 @@ function getBestMove(board: Player[][], player: Player): number {
         }
     }
 
-    console.log("Safe Moves:", safeMoves, "Risky Moves:", riskyMoves);
+    if (DEBUG) console.log("Safe Moves:", safeMoves, "Risky Moves:", riskyMoves);
     const movesToConsider = safeMoves.length > 0 ? safeMoves : riskyMoves;
 
     let bestScore = -Infinity;
@@ -139,6 +137,8 @@ function getBestMove(board: Player[][], player: Player): number {
     if (bestCol === undefined || bestCol === -1) {  // safeguard
         return COLUMN_ORDER.find(c => getAvailableRow(board, c) !== -1)!;
     }
+
+    if (DEBUG) console.log("Best Move:", bestCol, "with score:", bestScore);
 
     return bestCol;
 }
@@ -167,7 +167,6 @@ function createsCappedThreat(
     }
     return false;
 }
-
 
 function minimax(
     board: Player[][],
@@ -251,12 +250,7 @@ function countPatterns(
                     const rr = r + dr * i;
                     const cc = c + dc * i;
 
-                    if (
-                        rr < 0 ||
-                        rr >= ROWS ||
-                        cc < 0 ||
-                        cc >= COLS
-                    ) {
+                    if (rr < 0 || rr >= ROWS || cc < 0 || cc >= COLS) {
                         valid = false;
                         break;
                     }
