@@ -8,7 +8,7 @@ let MOVE: number = 0;
 
 const AI_PLAYER: Player = 2;
 const HUMAN_PLAYER: Player = 1;
-const MAX_DEPTH = 8;
+const MAX_DEPTH = 6;
 
 type Player = 0 | 1 | 2;
 type GameMode = "FRIEND" | "AI";
