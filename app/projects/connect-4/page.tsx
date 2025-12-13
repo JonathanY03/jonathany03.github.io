@@ -2,7 +2,7 @@
 import "@/app/globals.css";
 import React, {useState} from "react";
 
-const DEBUG = true;
+const DEBUG = false;
 
 const ROWS: number = 6;
 const COLS: number = 7;
