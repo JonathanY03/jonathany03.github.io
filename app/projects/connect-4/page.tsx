@@ -290,6 +290,7 @@ const Page = () => {
     const [currentPlayer, setCurrentPlayer] = useState<Player>(1);
     const [winner, setWinner] = useState<Player | null>(null);
     const [mode, setMode] = useState<GameMode | null>("FRIEND");
+    const [lastMove, setLastMove] = useState<{ r: number; c: number } | null>(null);
 
     const makeAIMove = (boardState: Player[][]) => {
         const col = getBestMove(boardState, AI_PLAYER);
@@ -300,6 +301,7 @@ const Page = () => {
 
         const newBoard = boardState.map(r => [...r]);
         newBoard[row][col] = AI_PLAYER;
+        setLastMove({ r: row, c: col });
 
         if (checkWin(newBoard, row, col, AI_PLAYER)) {
             setBoard(newBoard);
@@ -322,6 +324,7 @@ const Page = () => {
 
         const newBoard = board.map(r => [...r]);
         newBoard[row][col] = currentPlayer;
+        setLastMove({ r: row, c: col });
 
         if (checkWin(newBoard, row, col, currentPlayer)) {
             setBoard(newBoard);
@@ -345,6 +348,7 @@ const Page = () => {
         setBoard(createBoard());
         setCurrentPlayer(1);
         setWinner(null);
+        setLastMove(null);
         MOVE = 0;
     };
 
@@ -368,6 +372,7 @@ const Page = () => {
                                     ${cell === 0 && "bg-white"}
                                     ${cell === 1 && "bg-red-500"}
                                     ${cell === 2 && "bg-yellow-400"}
+                                    ${lastMove && lastMove.r === r && lastMove.c === c ? "ring-4 ring-offset-2 ring-blue-300" : ""}
                                 `}
                             />
                         ))
