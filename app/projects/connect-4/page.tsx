@@ -13,6 +13,8 @@ const MAX_DEPTH = 4;
 type Player = 0 | 1 | 2;
 type GameMode = "FRIEND" | "AI";
 
+const memo = new Map<string, number>();
+
 const createBoard = (): Player[][] => {
     return Array.from({ length: ROWS }, () => Array.from({ length: COLS }, () => 0));
 }
@@ -127,6 +129,9 @@ function minimax(
 ): number {
     if (depth === 0) return evaluateBoard(board);
 
+    const key = board.flat().join('') + depth + maximizing;
+    if (memo.has(key)) return memo.get(key)!;
+
     if (maximizing) {
         let maxEval = -Infinity;
         for (let col = 0; col < COLS; col++) {
@@ -140,6 +145,7 @@ function minimax(
             alpha = Math.max(alpha, evalScore);
             if (beta <= alpha) break; 
         }
+        memo.set(key, maxEval);
         return maxEval;
     } else {
         let minEval = Infinity;
@@ -154,6 +160,7 @@ function minimax(
             beta = Math.min(beta, evalScore);
             if (beta <= alpha) break; 
         }
+        memo.set(key, minEval);
         return minEval;
     }
 }
