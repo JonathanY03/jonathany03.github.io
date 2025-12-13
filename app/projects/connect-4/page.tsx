@@ -10,6 +10,8 @@ const AI_PLAYER: Player = 2;
 const HUMAN_PLAYER: Player = 1;
 const MAX_DEPTH = 4;
 
+const COLUMN_ORDER = [3, 2, 4, 1, 5, 0, 6];
+
 type Player = 0 | 1 | 2;
 type GameMode = "FRIEND" | "AI";
 
@@ -75,7 +77,7 @@ function getAvailableRow(board: Player[][], col: number): number {
 }
 
 function getBestMove(board: Player[][], player: Player): number {
-    for (let col = 0; col < COLS; col++) {  // win
+    for (const col of COLUMN_ORDER) {  // win
         const row = getAvailableRow(board, col);
         if (row === -1) continue;
 
@@ -88,7 +90,7 @@ function getBestMove(board: Player[][], player: Player): number {
     }
 
     const opponent = player === AI_PLAYER ? HUMAN_PLAYER : AI_PLAYER;
-    for (let col = 0; col < COLS; col++) {  // block
+    for (const col of COLUMN_ORDER) {  // block
         const row = getAvailableRow(board, col);
         if (row === -1) continue;
 
@@ -100,10 +102,27 @@ function getBestMove(board: Player[][], player: Player): number {
         }
     }
 
-    let bestScore = -Infinity;
-    let bestCol = -1;
+    const safeMoves: number[] = [];
+    const riskyMoves: number[] = [];
 
-    for (let col = 0; col < COLS; col++) {  // search
+    for (const col of COLUMN_ORDER) {
+        const row = getAvailableRow(board, col);
+        if (row === -1) continue;
+
+        if (createsCappedThreat(board, row, col, player)) {
+            riskyMoves.push(col);
+        } else {
+            safeMoves.push(col);
+        }
+    }
+
+    console.log("Safe Moves:", safeMoves, "Risky Moves:", riskyMoves);
+    const movesToConsider = safeMoves.length > 0 ? safeMoves : riskyMoves;
+
+    let bestScore = -Infinity;
+    let bestCol = movesToConsider[0];
+
+    for (const col of movesToConsider) {  // search
         const row = getAvailableRow(board, col);
         if (row === -1) continue;
 
@@ -117,8 +136,38 @@ function getBestMove(board: Player[][], player: Player): number {
         }
     }
 
+    if (bestCol === undefined || bestCol === -1) {  // safeguard
+        return COLUMN_ORDER.find(c => getAvailableRow(board, c) !== -1)!;
+    }
+
     return bestCol;
 }
+
+function createsCappedThreat(
+    board: Player[][],
+    row: number,
+    col: number,
+    player: Player
+): boolean {
+    const temp = board.map(r => [...r]);
+    temp[row][col] = player === AI_PLAYER ? HUMAN_PLAYER : AI_PLAYER;
+
+    for (const c of COLUMN_ORDER) {
+        const r = getAvailableRow(temp, c);
+        if (r === -1) continue;
+
+        temp[r][c] = player;
+        const win = checkWin(temp, r, c, player);
+        temp[r][c] = 0;
+
+        if (win) {
+            const blockRow = r - 1;
+            if (blockRow >= 0 && temp[blockRow][c] === 0) return true; 
+        }
+    }
+    return false;
+}
+
 
 function minimax(
     board: Player[][],
@@ -166,7 +215,7 @@ function minimax(
 }
 
 function evaluateBoard(board: Player[][]): number {
-    // TODO: Improve evaluation function
+    // TODO: Improve evaluation
 
     let score = 0;
 
