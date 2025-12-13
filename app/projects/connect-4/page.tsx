@@ -10,7 +10,7 @@ let MOVE: number = 0;
 
 const AI_PLAYER: Player = 2;
 const HUMAN_PLAYER: Player = 1;
-const MAX_DEPTH = 6;
+const MAX_DEPTH = 7;
 
 const COLUMN_ORDER = [3, 2, 4, 1, 5, 0, 6];
 
