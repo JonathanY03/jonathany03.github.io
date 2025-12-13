@@ -355,7 +355,7 @@ const Page = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
             <div className="shadow-md rounded-lg bg-white w-[80%] p-8 flex flex-col items-center justify-center space-y-6">
-                <h1 className="text-3xl font-bold">Connect 4</h1>
+                <h1 className="text-2xl font-bold mb-4 text-center">Connect 4</h1>
 
                 <div className="bg-black p-3 rounded-xl shadow-xl">
                     <div className="grid grid-cols-7 gap-2">
