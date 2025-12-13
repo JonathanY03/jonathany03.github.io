@@ -381,7 +381,7 @@ const Page = () => {
                 </div>
                 {winner !== null ? (
                     winner === 0 ? (
-                        <p className="text-gray-500">draw</p>
+                        <p className="text-black">draw</p>
                     ) : winner === 1 ? (
                         <p className="text-red-400">red wins</p>
                     ) : (
@@ -391,7 +391,7 @@ const Page = () => {
                     <p>
                         turn: 
                         <span className={currentPlayer === 1 ? "text-red-400" : "text-yellow-300"}>
-                            {currentPlayer === 1 ? " Red" : " Yellow"}
+                            {currentPlayer === 1 ? " red" : " yellow"}
                         </span>
                     </p>
                 )}
