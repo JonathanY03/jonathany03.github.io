@@ -10,7 +10,7 @@ let MOVE: number = 0;
 
 const AI_PLAYER: Player = 2;
 const HUMAN_PLAYER: Player = 1;
-const MAX_DEPTH = 4;
+const MAX_DEPTH = 5;
 
 const COLUMN_ORDER = [3, 2, 4, 1, 5, 0, 6];
 
@@ -364,7 +364,8 @@ const Page = () => {
                                     w-14 h-14 rounded-full
                                     flex items-center justify-center
                                     transition
-                                    ${cell === 0 && "bg-white hover:outline-blue-500 hover:outline hover:outline-4"}
+                                    hover:outline-blue-500 hover:outline hover:outline-4
+                                    ${cell === 0 && "bg-white"}
                                     ${cell === 1 && "bg-red-500"}
                                     ${cell === 2 && "bg-yellow-400"}
                                 `}
@@ -375,15 +376,15 @@ const Page = () => {
                 </div>
                 {winner !== null ? (
                     winner === 0 ? (
-                        <p className="text-gray-500">Draw</p>
+                        <p className="text-gray-500">draw</p>
                     ) : winner === 1 ? (
-                        <p className="text-red-400">Red wins</p>
+                        <p className="text-red-400">red wins</p>
                     ) : (
-                        <p className="text-yellow-300">Yellow wins</p>
+                        <p className="text-yellow-300">yellow wins</p>
                     )
                 ) : (
                     <p>
-                        Turn: 
+                        turn: 
                         <span className={currentPlayer === 1 ? "text-red-400" : "text-yellow-300"}>
                             {currentPlayer === 1 ? " Red" : " Yellow"}
                         </span>
@@ -399,11 +400,11 @@ const Page = () => {
 
                 <span>
                     <button onClick={() => {reset(); setMode("FRIEND");}} className={`hover:underline ${mode === "FRIEND" ? "underline" : ""}`}>
-                        Play vs Friend
+                        play with friend
                     </button>
                     {" | "}
                     <button onClick={() => {reset(); setMode("AI");}} className={`hover:underline ${mode === "AI" ? "underline" : ""}`}>
-                        Play vs AI
+                        play with AI
                     </button>
                 </span>
 
