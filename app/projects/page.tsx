@@ -6,9 +6,10 @@ import Link from 'next/link';
 const PAGE_SIZE = 5;
 
 const posts = [
-    { slug: "connect-4", title: "Connect 4", date: "12 December 2025", excerpt: "Basic connect 4 game for fun." },
     // Add one entry per subfolder/page in /app/projects, e.g.:
     // { slug: "your-subfolder-name", title: "Your Post Title", date: "YYYY-MM-DD", excerpt: "Short summary..." }
+    { slug: "password-demo", title: "Password Demo", date: "13 December 2025", excerpt: "A demo project showcasing a simple password functionality." },
+    { slug: "connect-4", title: "Connect 4", date: "12 December 2025", excerpt: "Basic connect 4 game for fun." },
 ];
 
 const Page = () => {
