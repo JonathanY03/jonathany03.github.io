@@ -131,8 +131,8 @@ const Page = () => {
             <div className="shadow-md rounded-lg bg-white w-[80%] p-8 flex flex-col items-center justify-center space-y-6">
                 <h1 className="text-2xl font-bold mb-4 text-center">Password Demo</h1>
 
-                <div className="flex flex-cols">
-                    <div>
+                <div className="flex flex-cols md:flex-row md:space-x-8 w-full justify-center">
+                    <div className="min-w-[35%]">
                         <label htmlFor="mode" className="sr-only">mode</label>
                         <select
                             id="mode"
@@ -159,7 +159,7 @@ const Page = () => {
                                     />
                                     <label htmlFor="create-password" className="sr-only">password</label>
                                     <input
-                                        type="password"
+                                        type="text"
                                         id="create-password"
                                         name="password"
                                         className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -215,7 +215,7 @@ const Page = () => {
                                     />
                                     <label htmlFor="login-password" className="sr-only">password</label>
                                     <input
-                                        type="password"
+                                        type="text"
                                         id="login-password"
                                         name="password"
                                         className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -238,17 +238,16 @@ const Page = () => {
                                         <p>attempting login for: {animTarget && animTarget.username}</p>
                                         <p>found salt: {animTarget && animTarget.salt}</p>
                                         <p>found algorithm: {animTarget && animTarget.algorithm}</p>
-                                        {computedHash ? <p>computed: {computedHash}</p> : <p>computing...</p>}
+                                        {computedHash ? <p className="break-all">computed: {computedHash}</p> : <p>computing...</p>}
                                         {compareResult === null && computedHash !== null && <p>matching...</p>}
-                                        {compareResult === "match" && <p>result: match <p className="text-green-500">login successfull</p></p>}
-                                        {compareResult === "mismatch" && <p>result: mismatch <p className="text-red-500">login unsuccessfull</p></p>}
+                                        {compareResult === "match" && <div><p>result: match</p><p className="text-green-500">login successfull</p></div>}
+                                        {compareResult === "mismatch" && <div><p>result: mismatch</p><p className="text-red-500">login unsuccessfull</p></div>}
                                     </div>
                                 )}
                             </form>
                         )}
                     </div>
-                    <span className="mx-10"></span>
-                    <div>
+                    <div className="min-w-[65%] p-4">
                         users
                         <div className="overflow-x-auto border rounded">
                             <table className="min-w-full divide-y divide-gray-200">
