@@ -2,7 +2,7 @@
 import "@/app/globals.css";
 import React, {useState} from "react";
 
-const DEBUG = false;
+const DEBUG = true;
 
 const ROWS: number = 6;
 const COLS: number = 7;
@@ -13,6 +13,8 @@ const HUMAN_PLAYER: Player = 1;
 const MAX_DEPTH = 8;
 
 const COLUMN_ORDER = [3, 2, 4, 1, 5, 0, 6];
+const WIN_REWARD = 1000000;
+const THREAT_REWARD = 50000;
 
 type Player = 0 | 1 | 2;
 type GameMode = "FRIEND" | "AI";
@@ -118,7 +120,7 @@ function getBestMove(board: Player[][], player: Player): number {
     const movesToConsider = safeMoves.length > 0 ? safeMoves : riskyMoves;
 
     let bestScore = -Infinity;
-    let bestCol = movesToConsider[0];
+    let bestCol = -1;
 
     for (const col of movesToConsider) {  // search
         const row = getAvailableRow(board, col);
@@ -131,6 +133,21 @@ function getBestMove(board: Player[][], player: Player): number {
         if (score > bestScore) {
             bestScore = score;
             bestCol = col;
+        }
+    }
+
+    if (bestScore === -WIN_REWARD && riskyMoves.length > 0) {  // try avoid loss'
+        if (DEBUG) console.log("Avoiding loss, trying risky moves");
+        for (const col of riskyMoves) {
+            const row = getAvailableRow(board, col);
+            if (row === -1) continue;
+            const tempBoard = board.map(r => [...r]);
+            tempBoard[row][col] = player;
+            const score = minimax(tempBoard, MAX_DEPTH - 1, -Infinity, Infinity, false);
+            if (score > bestScore) {
+                bestScore = score;
+                bestCol = col;
+            }
         }
     }
 
@@ -182,13 +199,13 @@ function minimax(
 
     if (maximizing) {
         let maxEval = -Infinity;
-        for (let col = 0; col < COLS; col++) {
+        for (const col of COLUMN_ORDER) {
             const row = getAvailableRow(board, col);
             if (row === -1) continue;
 
             const newBoard = board.map(r => [...r]);
             newBoard[row][col] = AI_PLAYER;
-            let evalScore = checkWin(newBoard, row, col, AI_PLAYER) ? 100000 : minimax(newBoard, depth - 1, alpha, beta, false);
+            let evalScore = checkWin(newBoard, row, col, AI_PLAYER) ? WIN_REWARD : minimax(newBoard, depth - 1, alpha, beta, false);
             maxEval = Math.max(maxEval, evalScore);
             alpha = Math.max(alpha, evalScore);
             if (beta <= alpha) break; 
@@ -197,13 +214,13 @@ function minimax(
         return maxEval;
     } else {
         let minEval = Infinity;
-        for (let col = 0; col < COLS; col++) {
+        for (const col of COLUMN_ORDER) {
             const row = getAvailableRow(board, col);
             if (row === -1) continue;
 
             const newBoard = board.map(r => [...r]);
             newBoard[row][col] = HUMAN_PLAYER;
-            let evalScore = checkWin(newBoard, row, col, HUMAN_PLAYER) ? -100000 : minimax(newBoard, depth - 1, alpha, beta, true);
+            let evalScore = checkWin(newBoard, row, col, HUMAN_PLAYER) ? -WIN_REWARD : minimax(newBoard, depth - 1, alpha, beta, true);
             minEval = Math.min(minEval, evalScore);
             beta = Math.min(beta, evalScore);
             if (beta <= alpha) break; 
