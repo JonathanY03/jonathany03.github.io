@@ -2,7 +2,6 @@
 import "@/app/globals.css";
 import React, {useState, useRef, useEffect} from "react";
 import crypto from "crypto";
-import { computeFromManifest } from "next/dist/build/utils";
 
 const DEBUG = false;
 
@@ -231,7 +230,7 @@ const Page = () => {
                                     login
                                 </button>
                                 {loginError && (
-                                        <p className="text-red-600 text-sm mt-1" role="alert">{loginError}</p>
+                                    <p className="text-red-600 text-sm mt-1" role="alert">{loginError}</p>
                                 )}
 
                                 {(animating || computedHash || compareResult) && (
@@ -262,24 +261,24 @@ const Page = () => {
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
-                                        {users.map((u) => {
-                                            const isTarget = animTarget ? animTarget.username === u.username : false;
-                                            const rowClass = isTarget
-                                                ? compareResult === "match"
-                                                    ? "bg-green-50"
-                                                    : compareResult === "mismatch"
-                                                        ? "bg-red-50"
-                                                        : "bg-yellow-50 animate-pulse"
-                                                : undefined;
-                                            return (
-                                                <tr key={u.username} className={rowClass}>
-                                                    <td className="px-4 py-2 align-top text-sm text-gray-900">{u.username}</td>
-                                                    <td className="px-4 py-2 align-top text-sm text-gray-700 font-mono break-all">{u.passwordHash}</td>
-                                                    <td className="px-4 py-2 align-top text-sm text-gray-900">{u.salt}</td>
-                                                    <td className="px-4 py-2 align-top text-sm text-gray-900">{u.algorithm}</td>
-                                                </tr>
-                                            );
-                                        })}
+                                    {users.map((u) => {
+                                        const isTarget = animTarget ? animTarget.username === u.username : false;
+                                        const rowClass = isTarget
+                                            ? compareResult === "match"
+                                                ? "bg-green-50"
+                                                : compareResult === "mismatch"
+                                                    ? "bg-red-50"
+                                                    : "bg-yellow-50 animate-pulse"
+                                            : undefined;
+                                        return (
+                                            <tr key={u.username} className={rowClass}>
+                                                <td className="px-4 py-2 align-top text-sm text-gray-900">{u.username}</td>
+                                                <td className="px-4 py-2 align-top text-sm text-gray-700 font-mono break-all">{u.passwordHash}</td>
+                                                <td className="px-4 py-2 align-top text-sm text-gray-900">{u.salt}</td>
+                                                <td className="px-4 py-2 align-top text-sm text-gray-900">{u.algorithm}</td>
+                                            </tr>
+                                        );
+                                    })}
                                 </tbody>
                             </table>
                         </div>
