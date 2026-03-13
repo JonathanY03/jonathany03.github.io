@@ -1,19 +1,7 @@
 "use client";
 import "@/app/globals.css";
 import React, {useState, useEffect} from "react";
-
-export function fastExp(base: bigint, exp: bigint, mod: bigint): bigint {
-    let result = 1n;
-    base = base % mod;
-    while (exp > 0n) {
-        if (exp % 2n === 1n) {
-            result = (result * base) % mod;
-        }
-        exp = exp / 2n;
-        base = (base * base) % mod;
-    }
-    return result;
-}
+import {fastExp} from "@/app/tools/cryptography/fast-exponentiation/fastExp";
 
 const Page = () => {
     const [base, setBase] = useState("");
