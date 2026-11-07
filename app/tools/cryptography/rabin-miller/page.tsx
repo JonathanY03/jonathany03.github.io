@@ -1,5 +1,4 @@
 "use client";
-import "@/app/globals.css";
 import React, {useState} from "react";
 import {rabinMiller} from "@/app/tools/cryptography/rabin-miller/rabinMiller";
 
@@ -24,20 +23,20 @@ const Page = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen">
-            <h1 className="text-2xl font-bold mb-4">Rabin-Miller Primality Test</h1>
-            <input
-                type="text"
-                value={number == "0" ? "" : number}
-                onChange={(e) => handleCheckPrimality(e.target.value)}
-                placeholder="Enter a number"
-                className="border p-2 mb-4 rounded"
-            />
-            {isPrime !== null && number !== "0" && (
-                <p className="mt-4 max-w-md text-center">
-                    {number} is {isPrime ? <span className="font-bold text-green-500">prime</span> : <span className="font-bold text-red-500">NOT prime</span>}.
-                </p>
-            )}
+        <div className="flex flex-col items-center justify-center min-h-screen break-words">
+            <div className="shadow-md rounded-lg bg-white w-[80%] p-8">
+                <h1>Rabin-Miller Primality Test</h1>
+                Is <input
+                    type="text"
+                    value={number == "0" ? "" : number}
+                    onChange={(e) => handleCheckPrimality(e.target.value)}
+                    placeholder="input number here"
+                    className="text-center border rounded"
+                /> prime? 
+                {isPrime !== null && number !== "0" && (
+                    isPrime ? <span className="font-bold text-green-500"> Yes.</span> : <span className="font-bold text-red-500"> No.</span>
+                )}
+            </div>
         </div>
     );
 }

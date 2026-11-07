@@ -1,5 +1,4 @@
 "use client";
-import "@/app/globals.css";
 import React, {useState, useEffect} from "react";
 import {fastExp} from "@/app/tools/cryptography/fast-exponentiation/fastExp";
 
@@ -40,45 +39,33 @@ const Page = () => {
     }, [base, exp, mod]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen">
-            <h1 className="text-2xl font-bold mb-4">Fast Exponentiation</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex flex-col">
-                    <label className="mb-2">Base:</label>
-                    <input
-                        type="text"
-                        value={base}
-                        onChange={(e) => setBase(e.target.value)}
-                        placeholder="Base"
-                        className="border p-2 mb-4 rounded"
-                    /> 
-                </div>
-                <div className="flex flex-col">
-                    <label className="mb-2">Exponent:</label>
-                    <input
-                        type="text"
-                        value={exp}
-                        onChange={(e) => setExp(e.target.value)}
-                        placeholder="Exponent"
-                        className="border p-2 mb-4 rounded"
-                    />
-                </div>
-                <div className="flex flex-col">
-                    <label className="mb-2">Modulus:</label>
-                    <input
-                        type="text"
-                        value={mod}
-                        onChange={(e) => setMod(e.target.value)}
-                        placeholder="Modulus"
-                        className="border p-2 mb-4 rounded"
-                    />
-                </div>
+        <div className="flex flex-col items-center justify-center min-h-screen break-words">
+            <div className="shadow-md rounded-lg bg-white w-[80%] p-8">
+                <h1>Fast Exponentiation</h1>
+                <p>a^b mod n = {result === null ? "?" : (<span>{result.toString()}</span>)}</p>
+                <p>Input values:</p>
+                <p>a = <input
+                    type="text"
+                    value={base}
+                    onChange={(e) => setBase(e.target.value)}
+                    placeholder="base"
+                    className="text-center border rounded"
+                /></p>
+                <p>b = <input
+                    type="text"
+                    value={exp}
+                    onChange={(e) => setExp(e.target.value)}
+                    placeholder="exponent"
+                    className="text-center border rounded"
+                /></p>
+                <p>n = <input
+                    type="text"
+                    value={mod}
+                    onChange={(e) => setMod(e.target.value)}
+                    placeholder="modulus"
+                    className="text-center border rounded"
+                /></p>
             </div>
-            {result !== null && (
-                <p className="mt-4">
-                    Result: <span className="font-bold">{result.toString()}</span>
-                </p>
-            )}
         </div>
     );
 }
