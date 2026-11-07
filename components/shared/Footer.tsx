@@ -19,7 +19,7 @@ const Footer = () => {
                         <li><Link href="/tools" className="hover:underline">Tools</Link></li>
                         <li><Link href="/projects" className="hover:underline">Projects</Link></li>
                         <li><Link href="/resume" className="hover:underline">Resume</Link></li>
-                        <li><Link href="/blog" className="hover:underline">Blog</Link></li>
+                        {/* <li><Link href="/blog" className="hover:underline">Blog</Link></li> */}
                     </ul>
                 </div>
                 <div className="flex flex-col md:flex-row md:space-x-4 xl:col-span-1 mb-2">
