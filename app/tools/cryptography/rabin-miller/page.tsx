@@ -34,7 +34,7 @@ const Page = () => {
                 className="border p-2 mb-4 rounded"
             />
             {isPrime !== null && number !== "0" && (
-                <p className="mt-4">
+                <p className="mt-4 max-w-md text-center">
                     {number} is {isPrime ? <span className="font-bold text-green-500">prime</span> : <span className="font-bold text-red-500">NOT prime</span>}.
                 </p>
             )}

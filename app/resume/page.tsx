@@ -9,17 +9,17 @@ const Page = () => {
                 
                 <h2 className="text-xl font-semibold mb-2">Education</h2>
                 <p className="text-gray-700 mb-2 font-bold">University of Guelph</p>
-                <span className="text-gray-700 mb-2 flex justify-between"><p>Master of Cybersecurity and Threat Intelligence</p><p className="text-gray-400">September 2026</p></span>
+                <span className="text-gray-700 mb-2 flex justify-between"><p>Master of Cybersecurity and Threat Intelligence</p><p className="text-gray-400">2025 - 2026</p></span>
                 <p className="text-gray-700 mb-2 font-bold">University of Toronto</p>
-                <span className="text-gray-700 mb-2 flex justify-between"><p>Honours Bachelor of Science (HBSc), Information Security Specialist, Mathematical Sciences Minor</p><p className="text-gray-400">June 2025</p></span>
+                <span className="text-gray-700 mb-2 flex justify-between"><p>Honours Bachelor of Science (HBSc), High Distinction, Information Security Specialist, Mathematical Sciences Minor</p><p className="text-gray-400">2021 - 2025</p></span>
                 
                 {/* <h2 className="text-lg font-semibold mb-1">Awards & Acheivements</h2> */}
-
+                {/* 
                 <h2 className="text-lg font-semibold mb-1">Skills</h2>
                 <p className="text-gray-700 mb-2">
                     Agile, Python, Java, C, JavaScript, SQL, Git, Docker, Microsoft Office Suite, Google Workspace, Critical Thinking, Teamwork, Time Management, 
                     Network Security, Cryptography, Penetration Testing, Vulnerability Assessment, Incident Response, Aritificial Intelligence, Machine Learning, Data Analysis
-                </p>
+                </p> */}
 
                 {/* <h2 className="text-lg font-semibold mb-1">Certifications</h2> */}
 
