@@ -1,5 +1,4 @@
 "use client";
-import "@/app/globals.css";
 import React, {useState} from "react";
 
 const DEBUG = true;

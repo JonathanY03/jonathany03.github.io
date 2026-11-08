@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import "@/app/globals.css";
+import Link from "next/link";
 
 const linkedin = "https://www.linkedin.com/in/jonathany03";
 const github = "https://github.com/JonathanY03";
