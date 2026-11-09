@@ -29,9 +29,9 @@ const Page = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen break-words">
-            <div className="shadow-md rounded-lg bg-white w-[80%] p-8">
-                <h1>Caesar Cipher</h1>
-                <div className="grid grid-cols-[80px_1fr]">
+            <div className="w-[80%] p-8">
+                <h1 className="text-3xl mb-4 text-center">Caesar Cipher</h1>
+                <div className="grid grid-cols-[80px_1fr] gap-2">
                     <p>Shift:</p><input
                         type="number"
                         value={shift}

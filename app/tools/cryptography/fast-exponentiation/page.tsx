@@ -40,31 +40,28 @@ const Page = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen break-words">
-            <div className="shadow-md rounded-lg bg-white w-[80%] p-8">
-                <h1>Fast Exponentiation</h1>
-                <p>a^b mod n = {result === null ? "?" : (<span>{result.toString()}</span>)}</p>
-                <p>Input values:</p>
-                <p>a = <input
+            <div className="w-[80%] p-8">
+                <h1 className="text-3xl mb-4 text-center">Fast Exponentiation</h1>
+                <p className="mb-2 text-center"><input
                     type="text"
                     value={base}
                     onChange={(e) => setBase(e.target.value)}
                     placeholder="base"
                     className="text-center border rounded"
-                /></p>
-                <p>b = <input
+                /> ^ <input
                     type="text"
                     value={exp}
                     onChange={(e) => setExp(e.target.value)}
                     placeholder="exponent"
                     className="text-center border rounded"
-                /></p>
-                <p>n = <input
+                /> mod <input
                     type="text"
                     value={mod}
                     onChange={(e) => setMod(e.target.value)}
                     placeholder="modulus"
                     className="text-center border rounded"
-                /></p>
+                /> </p>
+                <p className="mb-2 text-center">{result === null ? "" : (<span>{result.toString()}</span>)}</p>
             </div>
         </div>
     );

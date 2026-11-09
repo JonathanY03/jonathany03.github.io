@@ -3,13 +3,15 @@ import Link from "next/link";
 
 const Page = () => {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen break-words">
-            <div className="shadow-md rounded-lg bg-white w-[80%] p-8">
-                <h1>Projects</h1>
-                <ul>
-                    <li> - <Link href="/projects/connect-4" className="hover:underline">Connect 4</Link></li>
-                    <li> - <Link href="/projects/password-demo" className="hover:underline">Password Demo</Link></li>
-                </ul>
+        <div className="flex flex-col items-center justify-center min-h-screen">
+            <div className="w-[80%] p-8">
+                <h1 className="text-3xl mb-4 text-center">Projects</h1>
+                <h2 className="text-2xl mb-2">Cybersecurity</h2>
+                <span className="mb-2 flex justify-between"><Link href="/projects/password-demo" className="hover:underline"><h3 className="text-xl">Password Demo</h3></Link><p>2025</p></span>
+                <p className="mb-2">Simplified demo of how passwords are created, stored, and verified securely.</p>
+                <h2 className="text-2xl mb-2">Games</h2>
+                <span className="mb-2 flex justify-between"><Link href="/projects/connect-4" className="hover:underline"><h3 className="text-xl">Connect 4</h3></Link><p>2025</p></span>
+                <p className="mb-2">Connect 4 game. Play against AI or a friend.</p>
             </div>
         </div>
     );
