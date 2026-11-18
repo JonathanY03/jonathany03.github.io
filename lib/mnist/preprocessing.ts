@@ -1,3 +1,9 @@
+/**
+ * AI Generated Using ChatGPT
+ * Used to process and normalize user input to be similar to the MNIST handwritten digit dataset format.
+ * A 28 x 28 = 784 vector of normalized pixel values between [0-1].
+ */
+
 export const MNIST_SIZE = 28;
 export const MNIST_PIXELS = 28 * 28;
 
