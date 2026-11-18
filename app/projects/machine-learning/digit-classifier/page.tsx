@@ -26,6 +26,7 @@ const Page = () => {
                         <h2 className="text-2xl mb-2">Preprocessed Image</h2>
                         <View imageData={processedImage?.imageData ?? null} />
                     </span>
+                    <a href="https://colab.research.google.com/drive/1a5oKAvyhFTnUnR6NYuE9yKJ_paAtwkfc?usp=sharing" target="blank" className="hover:underline">Google Colab</a>
                 </div>
             </div>
         </div>

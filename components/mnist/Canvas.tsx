@@ -11,7 +11,6 @@ const Canvas = ({ onChange, brushSize = 18 }: DrawingCanvasProps) => {
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const drawingRef = useRef(false);
-    const [isDrawing, setIsDrawing] = useState(false);
 
     const SIZE = 280;
 
@@ -32,7 +31,6 @@ const Canvas = ({ onChange, brushSize = 18 }: DrawingCanvasProps) => {
             if (context) {
                 const pos = getPos(event);
                 drawingRef.current = true;
-                setIsDrawing(true);
                 context.beginPath();
                 context.moveTo(pos.x, pos.y);
                 context.fillStyle = "white";
@@ -64,7 +62,6 @@ const Canvas = ({ onChange, brushSize = 18 }: DrawingCanvasProps) => {
     const stopDrawing = (event: React.PointerEvent<HTMLCanvasElement>) => {
         if (!drawingRef.current) return;
         drawingRef.current = false;
-        setIsDrawing(false);
         const canvas = canvasRef.current;
         const context = canvas?.getContext("2d");
         if (context && canvas) {

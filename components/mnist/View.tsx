@@ -19,7 +19,7 @@ const View = ({ imageData }: PixelPreviewProps) => {
     }, [imageData]);
     return(
         <div className="flex flex-col gap-2">
-            <p>Preprocessed input (28 x 28)</p>
+            <p>(28 x 28)</p>
             <canvas
                 ref={canvasRef}
                 width={28}
