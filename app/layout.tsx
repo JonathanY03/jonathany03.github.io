@@ -24,7 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 			<head />
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
 				<Header />
-				{children}
+				<main className="pt-24">{children}</main>
 			</body>
 		</html>
 	);

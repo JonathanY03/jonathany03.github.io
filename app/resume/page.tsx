@@ -2,8 +2,8 @@
 
 const Page = () => {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen">
-            <div className="w-[80%] p-8">
+        <div className="flex flex-col items-center">
+            <div className="w-[80%]">
                 <h1 className="text-3xl mb-4 text-center">Jonathan Yu</h1>
                 <h2 className="text-2xl mb-2">Education</h2>
                 <span className="mb-2 flex justify-between"><h3 className="text-xl">University of Guelph</h3><p>2025 - 2026</p></span>

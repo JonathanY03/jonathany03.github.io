@@ -17,8 +17,8 @@ const Page = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen break-words">
-            <div className="w-[80%] p-8">
+        <div className="flex flex-col items-center break-words">
+            <div className="w-[80%]">
                 <h1 className="text-3xl mb-4 text-center">Rabin-Miller Primality Test</h1>
                 <p className="text-center mb-2">Is <input
                     type="number"
