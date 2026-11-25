@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const Page = () => {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen">
-            <div className="w-[80%] p-8">
+        <div className="flex flex-col items-center">
+            <div className="w-[80%]">
                 <h1 className="text-3xl mb-4 text-center">Tools</h1>
                 <h2 className="text-2xl mb-2">Cryptography</h2>
                 <Link href="/tools/cryptography/fast-exponentiation" className="hover:underline"><h3 className="text-xl mb-2">Fast Exponentiation</h3></Link>

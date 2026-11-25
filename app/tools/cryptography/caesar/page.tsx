@@ -28,8 +28,8 @@ const Page = () => {
     }, [p, c, shift]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen break-words">
-            <div className="w-[80%] p-8">
+        <div className="flex flex-col items-center break-words">
+            <div className="w-[80%]">
                 <h1 className="text-3xl mb-4 text-center">Caesar Cipher</h1>
                 <div className="grid grid-cols-[80px_1fr] gap-2">
                     <p>Shift:</p><input

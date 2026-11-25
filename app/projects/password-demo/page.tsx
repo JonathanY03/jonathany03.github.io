@@ -126,7 +126,7 @@ const Page = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="flex flex-col items-center">
             <div className="shadow-md rounded-lg bg-white w-[80%] p-8 flex flex-col items-center justify-center space-y-6">
                 <h1 className="text-2xl font-bold mb-4 text-center">Password Demo</h1>
 
